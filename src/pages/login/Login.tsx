@@ -5,7 +5,7 @@ import {LoginCredentials} from "./models/login-credentials.model";
 const Login = ({submitCredentials}: { submitCredentials: any }) => {
     console.log(submitCredentials);
     return (
-        <div className="flex justify-center flex-col items-center h-screen">
+        <div className="flex justify-center flex-col items-center h-screen dark:text-white">
             <code className="my-2">Hi there! Log in in your account. :)</code>
             <Formik
                 initialValues={{email: '', password: ''}}
@@ -17,7 +17,7 @@ const Login = ({submitCredentials}: { submitCredentials: any }) => {
                 <Form>
                     <div className="mb-2">
                         <div className="mb-1">
-                            <label className="text-sm font-semibold text-gray-700">Email</label>
+                            <label className="text-sm font-semibold text-gray-700 dark:text-white">Email</label>
                         </div>
                         <Field
                             className="block my-2 p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
@@ -29,7 +29,7 @@ const Login = ({submitCredentials}: { submitCredentials: any }) => {
                     </div>
                     <div className="mb-2">
                         <div className="mb-1">
-                            <label className="text-sm font-semibold text-gray-700">Password</label>
+                            <label className="text-sm font-semibold text-gray-700 dark:text-white">Password</label>
                         </div>
                         <Field
                             className="block my-2 p-2 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 sm:text-xs focus:ring-blue-500 focus:border-blue-500"
