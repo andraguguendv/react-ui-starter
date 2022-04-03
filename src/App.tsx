@@ -55,7 +55,7 @@ const App = () => {
         }
     };
     return (
-        <div className="App">
+        <div className="App dark:bg-gray-800">
             <div className="App">
                 <AuthContext.Provider value={proxy}>
                     {loginState.userInfo ? (<AuthenticatedApp/>) : (
