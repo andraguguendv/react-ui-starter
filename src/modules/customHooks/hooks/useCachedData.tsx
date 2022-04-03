@@ -19,7 +19,7 @@ export const useCachedData = (cachedData: cachedDataInterface, extractProp: stri
 
         fetchData(url);
         
-    }, [cachedData, extractProp])
+    }, [cachedData, fetchData])
 
     useEffect(() => {
         if (fetchedData) {
@@ -33,7 +33,7 @@ export const useCachedData = (cachedData: cachedDataInterface, extractProp: stri
                 cachedData[extractProp] = fetchedData
             }
         }
-    }, [fetchedData]);
+    }, [fetchedData, cachedData, extractProp]);
 
 
     return [data, error, myFunc];
