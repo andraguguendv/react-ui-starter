@@ -13,16 +13,16 @@ const CURRENCIES_URL = 'simple/supported_vs_currencies';
 const MARKETS_URL = 'coins/markets?vs_currency=';
 
 const Coins = () => {
+	const [targetCurrency, setTargetCurrency] = useState('usd');
     const [currenciesData, currenciesError, fetchCurrenciesData] = useCachedData(cachedData, 'currencies');
     const [coinsData, error, fetchCoinsData] = useFetch();
-    const [isCurrenciesDropdownOpen, setIsCurrenciesDropdownOpen] = useToggle();
-	const [targetCurrency, setTargetCurrency] = useState('usd');
+    const [isCurrenciesDropdownOpen, setIsCurrenciesDropdownOpen, currenciesDorpdownRef] = useToggle<HTMLDivElement>();
     
     useEffect(() => {
         if (targetCurrency) {
             fetchCoinsData(`${MARKETS_URL}${targetCurrency}`)
         }
-    }, [targetCurrency]);
+    }, [targetCurrency, fetchCoinsData]);
 
     useEffect(() => {
         fetchCurrenciesData('currencies', CURRENCIES_URL);
@@ -33,9 +33,8 @@ const Coins = () => {
 
     return (
         <div className={commonStyleClasses.wrapper}>
-			<div className="relative">
+			<div className="relative" ref={currenciesDorpdownRef}>
 				<button
-                    
                     type="button"
                     disabled={currenciesError}
                     className={!currenciesError ? commonStyleClasses.outlineButtonWithIcon : commonStyleClasses.outlineBUttonWithIconDisabled}
@@ -47,7 +46,7 @@ const Coins = () => {
 				{isCurrenciesDropdownOpen && <div className={commonStyleClasses.dropdown}>
 					<ul className="py-1 text-sm h-60 overflow-auto text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
 						{
-                            currenciesData && currenciesData.length && currenciesData.map((supportedCurrency: string, i: number) => <li key={i} className="block py-2 px-4 hover:bg-gray-100 hover:cursor-pointer dark:hover:bg-gray-600 dark:hover:text-white" onClick={() => setTargetCurrency(supportedCurrency)}>{supportedCurrency}</li>)
+                            currenciesData && currenciesData.length && currenciesData.map((supportedCurrency: string, i: number) => <li key={i} className={commonStyleClasses.dropdownItem} onClick={() => setTargetCurrency(supportedCurrency)}>{supportedCurrency}</li>)
                         }
 					</ul>
 				</div>}
