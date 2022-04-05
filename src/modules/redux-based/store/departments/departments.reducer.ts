@@ -1,15 +1,15 @@
-import {TransactionsActions} from "./transactions.actions";
+import {DepartmentsActions} from "./departments.actions";
 import {DomainStatus} from "../../../../models/store/domain-status.model";
 import {initialRequestStatus} from "../../../../models/store/request-status.model";
 import {StoreReqStatus} from "../../../../models/store/status.model";
-import {Transaction} from "../../models/transaction";
+import {Department} from "../../models/department";
 
-export interface TransactionsState {
-    transactions: DomainStatus<Array<Transaction>>;
+export interface DepartmentsState {
+    departments: DomainStatus<Array<Department>>;
 }
 
 export const initialState = {
-    transactions: {
+    departments: {
         domain: [],
         requestStatus: initialRequestStatus
     }
@@ -17,26 +17,26 @@ export const initialState = {
 
 
 // selectors
-export const selectTransactions = (state: any) => {
+export const selectDepartments = (state: any) => {
     console.log(state, 'stateeee');
 
-    return state.transactionsState?.transactions?.domain
+    return state.departmentsState?.departments?.domain
 };
 
-export const selectTransactionsRequestStatus = (state: any) => {
+export const selectDepartmentsRequestStatus = (state: any) => {
     console.log(state, 'stateeee');
 
-    return state.transactionsState?.transactions?.requestStatus
+    return state.departmentsState?.departments?.requestStatus
 };
 
 
-export const reducer = (state: TransactionsState = initialState, action: any) => {
+export const reducer = (state: DepartmentsState = initialState, action: any) => {
     switch (action.type) {
-        case TransactionsActions.GET_TRANSACTIONS: {
+        case DepartmentsActions.GET_DEPARTMENTS: {
             return {
                 ...state,
-                transactions: {
-                    ...state.transactions,
+                departments: {
+                    ...state.departments,
                     requestStatus: {
                         status: StoreReqStatus.PENDING,
                         errorNotification: null
@@ -44,10 +44,10 @@ export const reducer = (state: TransactionsState = initialState, action: any) =>
                 }
             }
         }
-        case TransactionsActions.GET_TRANSACTIONS_SUCCESS: {
+        case DepartmentsActions.GET_DEPARTMENTS_SUCCESS: {
             return {
                 ...state,
-                transactions: {
+                departments: {
                     domain: action.payload,
                     requestStatus: {
                         status: StoreReqStatus.COMPLETED,
@@ -57,11 +57,11 @@ export const reducer = (state: TransactionsState = initialState, action: any) =>
             }
         }
 
-        case TransactionsActions.GET_TRANSACTIONS_ERROR: {
+        case DepartmentsActions.GET_DEPARTMENTS_ERROR: {
             return {
                 ...state,
-                transactions: {
-                    ...state.transactions,
+                departments: {
+                    ...state.departments,
                     requestStatus: {
                         status: StoreReqStatus.ERROR,
                         errorNotification: action.payload

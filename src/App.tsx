@@ -12,12 +12,16 @@ import {AuthContextState} from "./context/authContext/models/auth.context.model"
 const LOGIN_URL = 'v1/auth/login';
 
 const App = () => {
+    const token = localStorage.getItem('token');
+    const userInfo = localStorage.getItem('userInfo');
+    const expiresAt = localStorage.getItem('expiresAt');
+
     const [loginState, setLoginState] = useState<LoginState>({
         isLoading: false,
         isError: false,
         isSuccess: false,
-        token: null,
-        userInfo: null
+        token: token ? token : null,
+        userInfo: userInfo ? JSON.parse(userInfo) : {}
     });
 
     const submitCredentials = async (credentials: LoginCredentials) => {
@@ -35,6 +39,10 @@ const App = () => {
                 userInfo,
                 token,
             })
+
+            localStorage.setItem('token', token);
+            localStorage.setItem('userInfo', JSON.stringify(userInfo));
+
         } catch (err: any) {
             if (!err?.response) {
                 console.log('err');
