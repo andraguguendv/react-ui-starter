@@ -1,6 +1,6 @@
 import {useState, useCallback, useEffect} from 'react';
 
-export const useClickAway = <T extends HTMLElement>(isOpen: boolean,  handler: () => void, ref?: React.MutableRefObject<T | null>,) => {
+export const useClickAway = <T extends HTMLElement>(isOpen: boolean, handler: () => void, ref?: React.MutableRefObject<T | null>,) => {
     const [isEventAdded, setIsEventAdded] = useState(false);
 
     const close = useCallback((e: Event) => {
@@ -12,20 +12,17 @@ export const useClickAway = <T extends HTMLElement>(isOpen: boolean,  handler: (
     useEffect(() => {
         if (isOpen) {
             if (ref?.current) {
-                console.log('addEventListener');
-                
+
                 setIsEventAdded(true);
                 document.addEventListener('click', close)
             }
         } else if (isEventAdded) {
-            console.log('removeEventListener')
-    
+
             document.removeEventListener('click', close)
             setIsEventAdded(false)
         }
     }, [isOpen, ref, close]);
 
-    
 
     return () => {
         document.removeEventListener('click', close)

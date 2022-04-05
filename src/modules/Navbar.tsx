@@ -1,8 +1,8 @@
 import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {Close, Hamburger, Moon, Sun} from './customHooks/assets/svgs';
-import {useToggle} from './customHooks/hooks/useToggle';
 import {commonStyleClasses} from './customHooks/utils/styles';
+import {useToggle} from "./customHooks/hooks/useToggle";
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useToggle();
