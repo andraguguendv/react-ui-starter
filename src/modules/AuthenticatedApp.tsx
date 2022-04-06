@@ -5,6 +5,7 @@ import Categories from './customHooks/pages/Categories';
 import Navbar from './Navbar'
 import Transactions from "./redux-based/pages/Transactions.page";
 import Departments from "./redux-based/pages/Departments.page";
+import BasicCounter from "./redux-based/pages/BasicCounter";
 
 const AuthenticatedApp = () => {
     return (
@@ -16,6 +17,7 @@ const AuthenticatedApp = () => {
                 <Route path='/coins' element={<Coins/>}/>
                 <Route path='/transactions' element={<Transactions/>}/>
                 <Route path='/departments' element={<Departments/>}/>
+                <Route path='/counter' element={<BasicCounter/>}/>
             </Routes>
         </BrowserRouter>
     )
