@@ -1,5 +1,5 @@
 interface ToggleInterface {
-    setIsFlipped: any
+    setIsFlipped: () => void
 
 }
 
@@ -13,7 +13,10 @@ interface CoinComponentProps {
 interface CoinComponentFrontProps extends Omit<CoinComponentProps, 'id'>, ToggleInterface {
 }
 interface CoinComponentBackProps extends ToggleInterface {
-    coinDescription: string
+    name: string,
+    coinData: string,
+    coinDataError: string | null,
+    isCoinDataLoading: boolean
 }
 
 export type {

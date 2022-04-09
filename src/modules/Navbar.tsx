@@ -1,21 +1,8 @@
-import {useEffect} from 'react';
 import {Link} from 'react-router-dom';
-import {Close, Hamburger, Moon, Sun} from './customHooks/assets/svgs';
+import { Hamburger, Sun} from './customHooks/assets/svgs';
 import {commonStyleClasses} from './customHooks/utils/styles';
-import {useToggle} from "./customHooks/hooks/useToggle";
 
 const Navbar = () => {
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useToggle();
-    const [isDarkMode, setIsDarkMode] = useToggle();
-
-    useEffect(() => {
-        if (isDarkMode) {
-            document.documentElement.classList.add('dark')
-        } else {
-            document.documentElement.removeAttribute('class')
-        }
-    }, [isDarkMode]);
-
     return (
         <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
             <div className={commonStyleClasses.wrapper}>
@@ -29,22 +16,18 @@ const Navbar = () => {
                     className={`${commonStyleClasses.iconButton} md:hidden`}
                     aria-controls="mobile-menu-2"
                     aria-expanded="false"
-                    onClick={setIsMobileMenuOpen}
+                    onClick={() => {}}
                 >
-                    <span className="sr-only">Open main menu</span>
-                    {isMobileMenuOpen
-                        ? <Close/>
-                        : <Hamburger/>
-                    }
+                    <Hamburger/>
                 </button>
-                <div className={` ${isMobileMenuOpen ? '' : 'hidden'} w-full md:block md:w-auto`} id="mobile-menu">
+                <div className={` hidden w-full md:block md:w-auto`} id="mobile-menu">
                     <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                         <li>
                             <button
                                 className={`${commonStyleClasses.navItem} w-full flex justify-center`}
-                                onClick={setIsDarkMode}
+                                onClick={() => {}}
                             >
-                                {isDarkMode ? <Moon/> : <Sun/>}
+                                <Sun/>
                             </button>
                         </li>
                         <li>
