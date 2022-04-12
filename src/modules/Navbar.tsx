@@ -65,6 +65,9 @@ const Navbar = () => {
                         <li>
                             <Link to="/counter" className={commonStyleClasses.navItem}>Basic Counter</Link>
                         </li>
+                        <li>
+                            <Link to="/users" className={commonStyleClasses.navItem}>Users</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

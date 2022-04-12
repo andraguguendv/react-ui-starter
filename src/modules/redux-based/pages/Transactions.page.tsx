@@ -18,6 +18,7 @@ const Transactions = () => {
     }, [])
 
 
+
     if (requestStatus?.status === StoreReqStatus.ERROR) return <Error error={requestStatus?.errorNotification}/>
     if (requestStatus?.status === StoreReqStatus.PENDING) return <Loader/>
 

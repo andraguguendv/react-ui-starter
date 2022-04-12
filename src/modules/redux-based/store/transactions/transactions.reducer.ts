@@ -9,6 +9,7 @@ export interface TransactionsState {
     transactions: DomainStatus<Array<Transaction>>;
 }
 
+
 export const initialState = {
     transactions: {
         domain: [],

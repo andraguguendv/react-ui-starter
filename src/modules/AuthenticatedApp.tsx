@@ -6,6 +6,7 @@ import Navbar from './Navbar'
 import Transactions from "./redux-based/pages/Transactions.page";
 import Departments from "./redux-based/pages/Departments.page";
 import BasicCounter from "./redux-based/pages/BasicCounter";
+import Users from "./redux-based/pages/Users.page";
 
 const AuthenticatedApp = () => {
     return (
@@ -18,6 +19,7 @@ const AuthenticatedApp = () => {
                 <Route path='/transactions' element={<Transactions/>}/>
                 <Route path='/departments' element={<Departments/>}/>
                 <Route path='/counter' element={<BasicCounter/>}/>
+                <Route path='/users' element={<Users/>}/>
             </Routes>
         </BrowserRouter>
     )

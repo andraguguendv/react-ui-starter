@@ -5,9 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import {store} from "./modules/redux-based/store/store";
+import {store as toolkitStore} from './modules/redux-based/store/store-toolkit';
+
 
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={toolkitStore}>
         <React.StrictMode>
             <App/>
         </React.StrictMode>
