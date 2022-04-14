@@ -14,7 +14,7 @@ interface CoinComponentFrontProps extends Omit<CoinComponentProps, 'id'>, Toggle
 }
 interface CoinComponentBackProps extends ToggleInterface {
     name: string,
-    coinData: string,
+    coinData: any,
     coinDataError: string | null,
     isCoinDataLoading: boolean
 }
