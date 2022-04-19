@@ -68,6 +68,12 @@ const Navbar = () => {
                         <li>
                             <Link to="/users" className={commonStyleClasses.navItem}>Users</Link>
                         </li>
+                        <li>
+                            <Link to="/toggle" className={commonStyleClasses.navItem}>Toggle example</Link>
+                        </li>
+                        <li>
+                            <Link to="/accordion" className={commonStyleClasses.navItem}>Accordion example</Link>
+                        </li>
                     </ul>
                 </div>
             </div>

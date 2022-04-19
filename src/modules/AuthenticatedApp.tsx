@@ -7,6 +7,8 @@ import Transactions from "./redux-based/pages/Transactions.page";
 import Departments from "./redux-based/pages/Departments.page";
 import BasicCounter from "./redux-based/pages/BasicCounter";
 import Users from "./redux-based/pages/Users.page";
+import ToggleExamplePage from "./component-patterns/ToggleExample.page";
+import AccordionExamplePage from "./component-patterns/AccordionExamplePage";
 
 const AuthenticatedApp = () => {
     return (
@@ -20,6 +22,8 @@ const AuthenticatedApp = () => {
                 <Route path='/departments' element={<Departments/>}/>
                 <Route path='/counter' element={<BasicCounter/>}/>
                 <Route path='/users' element={<Users/>}/>
+                <Route path='/toggle' element={<ToggleExamplePage/>}/>
+                <Route path='/accordion' element={<AccordionExamplePage/>}/>
             </Routes>
         </BrowserRouter>
     )

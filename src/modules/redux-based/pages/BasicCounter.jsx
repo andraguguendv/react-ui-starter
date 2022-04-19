@@ -7,7 +7,7 @@ const BasicCounter = () => {
 
     return (
         <main className="flex flex-col">
-            <p className="count">{count}</p>
+            <p className="count">{count || ''}</p>
             <section className="flex flex-col">
                 <button onClick={() => increment()}>Increment</button>
                 <button onClick={() => decrement()}>Decrement</button>

@@ -18,7 +18,6 @@ const Transactions = () => {
     }, [])
 
 
-
     if (requestStatus?.status === StoreReqStatus.ERROR) return <Error error={requestStatus?.errorNotification}/>
     if (requestStatus?.status === StoreReqStatus.PENDING) return <Loader/>
 
@@ -36,7 +35,7 @@ const Transactions = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {transactions.map((transaction: any) => (
+                            {transactions?.map((transaction: any) => (
                                 <TableRow
                                     key={transaction.title}
                                     sx={{'&:last-child td, &:last-child th': {border: 0}}}
